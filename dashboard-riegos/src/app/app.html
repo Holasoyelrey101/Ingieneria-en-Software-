@@ -1,0 +1,15 @@
+<main style="padding: 20px; font-family: sans-serif;">
+  <h2>Monitoreo de Tomates en Terreno</h2>
+
+  @for (dato of datosTelemetria; track dato.id) {
+    <div style="border: 1px solid #ccc; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+      <h3>Dispositivo: {{ dato.device_id }}</h3>
+      <p><strong>Humedad del suelo:</strong> {{ dato.humedad_suelo }}%</p>
+      <p><strong>Temperatura:</strong> {{ dato.temperatura }}°C</p>
+      <p><strong>Batería:</strong> {{ dato.bateria_volts }}V</p>
+      <p><small style="color: gray;">Registrado: {{ dato.created_at }}</small></p>
+    </div>
+  } @empty {
+    <p>Cargando datos de los sensores...</p>
+  }
+</main>
